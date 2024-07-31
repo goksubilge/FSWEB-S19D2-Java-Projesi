@@ -23,7 +23,7 @@ public class AuthenticationService {
     }
 
     // Default min role
-    public Member register(String email, String password) {
+    public Member register(String email, String password) {  // entity type dönmemeliyim, dto  =>  MemberResponse dönmeliyim
         //Kullanıcı varsa:
         Optional<Member> foundMember = memberDao.findByEmail(email);
         if (foundMember.isPresent()) {

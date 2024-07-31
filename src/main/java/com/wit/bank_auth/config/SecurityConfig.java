@@ -20,7 +20,9 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean  // Authentication Yönetimi, Spring'in Default yönetiminden çıkarmak amacıyla yazıyorum
+    @Bean
+    // Authentication Yönetimi, Spring'in Default yönetiminden çıkarmak amacıyla yazıyorum. Veritabanı üzerinden gidip password eşleşmesini kontrol eder.
+    // SpringSecurity'ye bırakıyor userName = password eşleşmesini. decode'u ben elle yapamam, Spring de yapmaz. gelen password'ü encode eder iki encode uyuşmasını kontrol eder. decode Bcript kendisi yapar decode fln kendi içerisinde artık.
     public AuthenticationManager authManager(UserDetailsService userDetailsService){
         DaoAuthenticationProvider daoProvider = new DaoAuthenticationProvider();
         daoProvider.setUserDetailsService(userDetailsService);
