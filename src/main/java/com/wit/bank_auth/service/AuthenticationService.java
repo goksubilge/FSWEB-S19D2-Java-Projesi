@@ -6,10 +6,12 @@ import com.wit.bank_auth.entity.Member;
 import com.wit.bank_auth.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import javax.management.relation.RoleList;
 import java.util.*;
 
+@Service
 public class AuthenticationService {
     private MemberDao memberDao;
     private RoleDao roleDao;
